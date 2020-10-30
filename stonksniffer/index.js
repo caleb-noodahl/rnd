@@ -1,7 +1,7 @@
 'use-strict';
 
-const axios = require('axios');
-const aa = require('./alphavantage');
+
+const aa = require('../lib/alphavantage');
 const symbols = require('./config/symbols.json').symbols;
 const writepath = require('./config/config.json').writepath;
 const fs = require('fs'); 
@@ -17,8 +17,6 @@ const fs = require('fs');
             await writeData(data, `${writepath}${symbol}.json`);
             await timeout(16000);
         }
-        
-
     }catch(error) {
         console.log(`stonksniffer | index | main | error : ${error}`);
     }
